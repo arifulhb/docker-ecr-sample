@@ -1,0 +1,5 @@
+#!/bin/bash
+
+printf "\nStopping & Remove App, MySQL, Nginx, Redis Containers..\n\n"
+docker-compose down
+printf "\nComplete!!!\n"

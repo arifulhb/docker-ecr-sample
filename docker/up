@@ -1,0 +1,5 @@
+#!/bin/bash
+
+printf "\nBooting up App, MySQL, Nginx, Redis Containers..\n\n"
+docker-compose up -d
+printf "\nComplete!!!\n"

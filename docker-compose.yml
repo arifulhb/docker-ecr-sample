@@ -1,0 +1,29 @@
+version: '3.6'
+services:
+  test_app:
+      build:
+        context: .
+        dockerfile: ./docker/app/Dockerfile
+        args:
+          - NOVA_USER="user@example.com"
+      container_name: test_app_1
+      volumes:
+        - test-app-data:/var/www/app
+  test_nginx:
+      build:
+        context: ./docker/nginx
+        dockerfile: Dockerfile
+      container_name: test_nginx_1
+      ports:
+        - "80:80"
+        - "443:443"
+      volumes:
+        - test-app-data:/var/www/app
+        - test-nginx-log:/var/log/nginx
+      external_links:
+        - test_app_1
+      depends_on:
+        - test_app
+volumes:
+  test-app-data:
+  test-nginx-log:
