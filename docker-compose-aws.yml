@@ -1,21 +1,21 @@
 version: '3'
 services:
   test_app:
-      image: "xxxxxx.dkr.ecr.xx-xxxx-1.amazonaws.com/test-app"
+      image: "xxxxxx.dkr.ecr.xx-xxxx-1.amazonaws.com/test-app:latest"
       build:
         context: .
         dockerfile: ./docker/app/Dockerfile
         args:
           - NOVA_USER="services@4thirteen.com.my"
-      container_name: test_app_1
       volumes:
         - test-app-data:/var/www/app
+      networks:
+        - internet
   test_nginx:
-      image: "xxxxxx.dkr.ecr.xx-xx-1.amazonaws.com/test-nginx"
+      image: "xxxxxx.dkr.ecr.xx-xxxx-1.amazonaws.com/test-nginx:latest"
       build:
         context: ./docker/nginx
         dockerfile: Dockerfile
-      container_name: test_nginx_1
       ports:
         - "80:80"
         - "443:443"
@@ -26,6 +26,10 @@ services:
         - test_app_1
       depends_on:
         - test_app
+      networks:
+        - internet
+networks:
+  internet:
 volumes:
   test-app-data:
   test-nginx-log:
