@@ -53,7 +53,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "081461887189.dkr.ecr.us-east-1.amazonaws.com/test-app:latest",
+      "image": "xxxxxxxx.dkr.ecr.xx-xxxx-1.amazonaws.com/test-app:latest",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -79,7 +79,7 @@
         "secretOptions": null,
         "options": {
           "awslogs-group": "/ecs/docker_test",
-          "awslogs-region": "us-east-1",
+          "awslogs-region": "xx-xxxx-1",
           "awslogs-stream-prefix": "ecs"
         }
       },
@@ -133,7 +133,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "081461887189.dkr.ecr.us-east-1.amazonaws.com/test-nginx:latest",
+      "image": "xxxxxxxx.dkr.ecr.xx-xxxx-1.amazonaws.com/test-nginx:latest",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -161,7 +161,7 @@
   "compatibilities": [
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:081461887189:task-definition/docker_test:9",
+  "taskDefinitionArn": "arn:aws:ecs:xx-xxxx-1:xxxxxxxx:task-definition/docker_test:9",
   "family": "docker_test",
   "requiresAttributes": [
     {
